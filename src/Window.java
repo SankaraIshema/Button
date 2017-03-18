@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,13 +15,14 @@ public class Window extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		
-		this.setLayout(new BorderLayout());
+		this.setLayout(new GridLayout(3,2));
 		
-		this.getContentPane().add(new JButton("EAST"), BorderLayout.EAST);
-		this.getContentPane().add(new JButton("WEST"), BorderLayout.WEST);
-		this.getContentPane().add(new JButton("NORTH"), BorderLayout.NORTH);
-		this.getContentPane().add(new JButton("SOUTH"), BorderLayout.SOUTH);
-		this.getContentPane().add(new JButton("CENTER"), BorderLayout.CENTER);
+		this.getContentPane().add(new JButton("1"));
+		this.getContentPane().add(new JButton("2"));
+		this.getContentPane().add(new JButton("3"));
+		this.getContentPane().add(new JButton("4"));
+		this.getContentPane().add(new JButton("5"));
+		this.getContentPane().add(new JButton("6"));
 		
 		this.setVisible(true);
 	}
