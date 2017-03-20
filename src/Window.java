@@ -31,7 +31,7 @@ public class Window extends JFrame{
 		boxPanel3.add(new JButton("6"));
 		
 		JPanel boxPanel4 = new JPanel();
-		boxPanel3.setLayout(new BoxLayout(boxPanel4, BoxLayout.PAGE_AXIS));
+		boxPanel4.setLayout(new BoxLayout(boxPanel4, BoxLayout.PAGE_AXIS));
 		boxPanel4.add(boxPanel1);
 		boxPanel4.add(boxPanel2);
 		boxPanel4.add(boxPanel3);
