@@ -1,5 +1,9 @@
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -8,6 +12,10 @@ import javax.swing.JPanel;
 
 public class Window extends JFrame{
 	
+	CardLayout cardLayout = new CardLayout();
+	JPanel motherPane = new JPanel();
+	String[] listDaughterPane = {"DAUGHTER_PANE_1", "DAUGHTER_PANE_2", "DAUGHTER_PANE_3"};
+	int i = 0;
 	
 	public Window() {
 		this.setTitle("Interesting Window");
@@ -15,28 +23,45 @@ public class Window extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		
-		JPanel boxPanel1 = new JPanel();
-		boxPanel1.setLayout(new BoxLayout(boxPanel1, BoxLayout.LINE_AXIS));
-		boxPanel1.add(new JButton("1"));
+		JPanel daughterPane1 = new JPanel();
+		daughterPane1.setBackground(Color.BLUE);
+		JPanel daughterPane2 = new JPanel();
+		daughterPane2.setBackground(Color.YELLOW);
+		JPanel daughterPane3 = new JPanel();
+		daughterPane3.setBackground(Color.RED);	
 		
-		JPanel boxPanel2 = new JPanel();
-		boxPanel2.setLayout(new BoxLayout(boxPanel2, BoxLayout.LINE_AXIS));
-		boxPanel2.add(new JButton("2"));
-		boxPanel2.add(new JButton("3"));
+		JButton button1 = new JButton("Next Content");
+		button1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				cardLayout.next(motherPane);
+				
+			}
+		});
 		
-		JPanel boxPanel3 = new JPanel();
-		boxPanel3.setLayout(new BoxLayout(boxPanel3, BoxLayout.LINE_AXIS));
-		boxPanel3.add(new JButton("4"));
-		boxPanel3.add(new JButton("5"));
-		boxPanel3.add(new JButton("6"));
+		JButton button2 = new JButton("Content by Indice");
+		button2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(++i > 2) i = 0;
+				cardLayout.show(motherPane, listDaughterPane[i]);
+				
+			}
+		});
 		
-		JPanel boxPanel4 = new JPanel();
-		boxPanel4.setLayout(new BoxLayout(boxPanel4, BoxLayout.PAGE_AXIS));
-		boxPanel4.add(boxPanel1);
-		boxPanel4.add(boxPanel2);
-		boxPanel4.add(boxPanel3);
+		JPanel buttonPane = new JPanel();
+		buttonPane.add(button1);
+		buttonPane.add(button2);
 		
-		this.getContentPane().add(boxPanel4);
+		motherPane.setLayout(cardLayout);
+		motherPane.add(daughterPane1, listDaughterPane[0]);
+		motherPane.add(daughterPane2, listDaughterPane[1]);
+		motherPane.add(daughterPane3, listDaughterPane[2]);
+		
+		this.getContentPane().add(buttonPane, BorderLayout.NORTH);
+		this.getContentPane().add(motherPane, BorderLayout.CENTER);
 		this.setVisible(true);
 	}
 }
