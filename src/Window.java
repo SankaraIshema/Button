@@ -62,7 +62,7 @@ public class Window extends JFrame{
 		motherPane.setBackground(Color.WHITE);
 		motherPane.setPreferredSize(new Dimension(300, 120));
 		
-		/* We set the GridBagLaout for our mother panel
+		/* We set the GridBagLayout for our mother panel
 		 * and we create an instance of GridBagConstraints that will handle the colour panels
 		 */
 		motherPane.setLayout(new GridBagLayout());
@@ -80,8 +80,9 @@ public class Window extends JFrame{
 		gridBagConstraints.gridwidth = 1;
 		gridBagConstraints.gridheight = 1;
 		
-		/* Then we add the colour panel - with it's gridBagConstraints containing
-		 * all it's specifications - to the mother panel
+		/* Then we add the colour panel 
+		 * - with it's gridBagConstraints containing all it's specifications - 
+		 * to the mother panel
 		 */
 		motherPane.add(colorPanel1, gridBagConstraints);
 		
@@ -116,7 +117,7 @@ public class Window extends JFrame{
 		gridBagConstraints.gridwidth = 1;
 		gridBagConstraints.gridheight = 2;
 		
-		// We must warn our gridBagConstraints that this one replicate itself vertically
+		// We must here warn our gridBagConstraints that this one replicate itself vertically
 		gridBagConstraints.fill = GridBagConstraints.VERTICAL;
 		motherPane.add(colorPanel5, gridBagConstraints);
 		
@@ -125,7 +126,7 @@ public class Window extends JFrame{
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridheight = 1;
 		
-		// We must warn our gridBagConstraints that this replicate itself horizontally
+		// We must here warn our gridBagConstraints that this one replicate itself horizontally
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.gridwidth = GridBagConstraints.REMAINDER;
 		motherPane.add(colorPanel6, gridBagConstraints);
@@ -148,7 +149,7 @@ public class Window extends JFrame{
 		// We set the mother panel as the main panel of our window
 		this.setContentPane(motherPane);
 		
-		/* We then show the true definition of Shock and Awe that is our creation
+		/* We then display the true materialisation of Shock and Awe that is our creation
 		 * for all the world to see
 		 */
 		this.setVisible(true);
